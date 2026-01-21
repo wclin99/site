@@ -1,4 +1,25 @@
 site_name: My Notes
-site_url: 
+site_url:
 theme:
   name: material
+  features:
+    - navigation.indexes
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - blog:
+      blog_dir: blog
+      archive_date_format: MM yyyy
+  - meta
+  - tags
+
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Blog:
+     - blog/index.md
+     - blog/tags.md
