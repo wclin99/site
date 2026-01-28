@@ -2,6 +2,8 @@ site_name: My Notes
 site_url:
 theme:
   name: material
+  palette:
+    primary: custom
   features:
     - navigation.indexes
 

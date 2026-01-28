@@ -2,23 +2,30 @@
    1. 字体引入 (Google Fonts)
    包含 Noto Sans (无衬线) 和 Noto Serif (衬线) 的中英文全套字重
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Serif:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Serif:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;700&display=swap");
 
 /* ==========================================================================
    2. 全局变量与基础排版
    ========================================================================== */
 :root {
-    /* 定义 Material 主题使用的基础字体变量 */
-    --md-text-font: "Noto Sans", "Noto Sans SC", sans-serif;
-    /* 定义统一的标题颜色 */
-    --custom-heading-color: rgb(16, 20, 24);
+  /* 定义 Material 主题使用的基础字体变量 */
+  /* --md-text-font: "Noto Sans", "Noto Sans SC", sans-serif; */
+  --md-text-font: sans-serif;
+  /* 定义统一的标题颜色 */
+  --custom-heading-color: rgb(16, 20, 24);
+  --md-primary-fg-color: #3366cc;
 }
 
 .md-typeset {
-    font-family: var(--md-text-font);
-    font-size: 16px;
-    line-height: 26px;
-    color: #333; /* 稍微深于默认值，增加可读性 */
+  font-family: var(--md-text-font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6; /* Wikipedia 关键参数 */
+  color: #202122; /* Wikipedia 正文色 */
+}
+
+.md-typeset p {
+  margin: 0.5em 0 0.8em;
 }
 
 /* ==========================================================================
@@ -28,39 +35,40 @@
 /* --- H1 & H2: 衬线体 (宋体风格) --- */
 .md-typeset h1,
 .md-typeset h2 {
-    font-family: "Noto Serif", "Noto Serif SC", serif;
-    font-weight: 500;
-    line-height: 1.375;
-    color: var(--custom-heading-color);
-    margin-bottom: 0.6em;
-    border-bottom: 1px solid #a2a9b1;
+  /* font-family: "Noto Serif", "Noto Serif SC", serif; */
+  font-family: "Linux Libertine", Georgia, Times, "Source Serif 4", serif;
+  font-weight: 500;
+  line-height: 1.375;
+  color: var(--custom-heading-color);
+  margin-bottom: 0.6em;
+  border-bottom: 1px solid #a2a9b1;
 }
 
 .md-typeset h1 {
-    font-size: 28.8px;
+  font-size: 28.8px;
 }
 
 .md-typeset h2 {
-    font-size: 24px;
-    margin-top: 1.5em;
+  font-size: 24px;
+  margin-top: 1.5em;
 }
 
 /* --- H3 & H4: 无衬线体 (黑体风格) --- */
 .md-typeset h3,
 .md-typeset h4 {
-    font-family: var(--md-text-font);
-    font-weight: 700;
-    color: var(--custom-heading-color);
+  font-family: var(--md-text-font);
+  font-weight: 700;
+  color: var(--custom-heading-color);
 }
 
 .md-typeset h3 {
-    font-size: 19.2px;
-    margin-bottom: 4.8px;
+  font-size: 19.2px;
+  margin-bottom: 4.8px;
 }
 
 .md-typeset h4 {
-    font-size: 16px;
-    margin-bottom: 4px;
+  font-size: 16px;
+  margin-bottom: 4px;
 }
 
 /* ==========================================================================
@@ -72,11 +80,46 @@
 .md-sidebar--primary .md-nav__title,
 .md-sidebar--secondary .md-nav__link,
 .md-sidebar--secondary .md-nav__title {
-    font-size: 14px !important;
+  font-size: 14px !important;
 }
 
 /* 优化：当鼠标悬停在侧边栏链接上时，稍微加深颜色或显示动画 (可选) */
 .md-sidebar .md-nav__link:focus,
 .md-sidebar .md-nav__link:hover {
-    color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+}
+
+
+
+
+
+/* ==========================
+   Header 顶部导航栏行为调整
+   ========================== */
+
+/* 1. 取消背景色 */
+/* .md-header {
+    background-color: transparent;
+} */
+
+/* 2. 取消阴影 */
+.md-header,
+.md-header--shadow {
+    box-shadow: none;
+}
+
+/* 3. 取消吸顶（sticky） */
+.md-header {
+    position: static;
+}
+
+
+
+/* ==========================
+   Sidebar sticky 顶部距离修正
+   ========================== */
+
+/* 覆盖 Material JS 写入的 top 值 */
+.md-sidebar {
+    top: 12px !important;   /* 你想要的安全距离 */
 }
