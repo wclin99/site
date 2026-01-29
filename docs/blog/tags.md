@@ -1,2 +1,2 @@
-# Tag index  for the blog
+# 标签
 <!-- material/tags { scope: true } -->

@@ -4,8 +4,14 @@ theme:
   name: material
   palette:
     primary: custom
+  language: zh
   features:
     - navigation.indexes
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
 
 extra_css:
   - stylesheets/extra.css
@@ -18,32 +24,46 @@ plugins:
   - meta
   - tags
   - glightbox:
-       touchNavigation: true
-       loop: false
-       effect: zoom
-       slide_effect: slide
-       width: 100%
-       height: auto
-       zoomable: true
-       draggable: true
-       skip_classes:
-         - custom-skip-class-name
-       auto_themed: false
-       auto_caption: false
-       caption_position: bottom
-       background: white
-       shadow: true
-       manual: false
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_themed: false
+      auto_caption: false
+      caption_position: bottom
+      background: white
+      shadow: true
+      manual: false
 
 markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
 
+# nav:
+#   - Home: index.md
+#   - About: about.md
+#   - Blog:
+#       - blog/index.md
+#       - blog/tags.md
 
-nav:
-  - Home: index.md
-  - About: about.md
-  - Blog:
-     - blog/index.md
-     - blog/tags.md
+
+# nav:
+#   - 首页: index.md
+#   - 使用指南:
+#       - 使用指南首页: usage/index.md
+#       - 快速开始: usage/start.md
+#       - 高级配置: usage/advanced.md
+#   - 引用:
+#       - 常用: reference/index.md
+#       - 插件: reference/plugins.md
+#   - 关于: about.md
+#   - 博客:
+#       - blog/index.md
+#       - blog/tags.md

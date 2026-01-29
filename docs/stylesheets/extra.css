@@ -8,11 +8,9 @@
    2. 全局变量与基础排版
    ========================================================================== */
 :root {
-  /* 定义 Material 主题使用的基础字体变量 */
   /* --md-text-font: "Noto Sans", "Noto Sans SC", sans-serif; */
-  --md-text-font: sans-serif;
-  /* 定义统一的标题颜色 */
-  --custom-heading-color: rgb(16, 20, 24);
+  --md-text-font: sans-serif; /* 定义 Material 主题使用的基础字体变量 */
+  --custom-heading-color: rgb(16, 20, 24); /* 定义统一的标题颜色 */
   --md-primary-fg-color: #3366cc;
 }
 
@@ -41,8 +39,17 @@
   line-height: 1.375;
   color: var(--custom-heading-color);
   margin-bottom: 0.6em;
+  padding-bottom: 4px;
   border-bottom: 1px solid #a2a9b1;
 }
+
+
+/* 取消 tag:xxx 标题的下边框 */
+.md-typeset h2[id^="tag:"] {
+  border-bottom: none;
+  font-family: var(--md-text-font);
+}
+
 
 .md-typeset h1 {
   font-size: 28.8px;
@@ -89,10 +96,6 @@
   color: var(--md-accent-fg-color);
 }
 
-
-
-
-
 /* ==========================
    Header 顶部导航栏行为调整
    ========================== */
@@ -105,15 +108,13 @@
 /* 2. 取消阴影 */
 .md-header,
 .md-header--shadow {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 /* 3. 取消吸顶（sticky） */
 .md-header {
-    position: static;
+  position: static;
 }
-
-
 
 /* ==========================
    Sidebar sticky 顶部距离修正
@@ -121,5 +122,5 @@
 
 /* 覆盖 Material JS 写入的 top 值 */
 .md-sidebar {
-    top: 12px !important;   /* 你想要的安全距离 */
+  top: 12px !important; 
 }
